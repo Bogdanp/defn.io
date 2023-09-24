@@ -1,0 +1,26 @@
+@font-face {
+  font-family: valkyrie-text;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_a_regular.woff2");
+}
+
+@font-face {
+  font-family: valkyrie-text;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_a_italic.woff2");
+}
+
+@font-face {
+  font-family: valkyrie-caps;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-display: auto;
+  src: url("/fonts/valkyrie_a_caps_regular.woff2");
+}
