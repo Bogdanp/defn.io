@@ -24,17 +24,18 @@
 (define (render-feed [out (current-output-port)])
   (define sorted-posts
     (sort
-     (for/list ([(_p slug doc) (in-documents posts)])
+     (for/list ([(_path slug doc) (in-documents posts)])
        (list slug doc (post-date doc)))
      #:key (compose1 date->seconds caddr) >))
   (define items
     (for/list ([post (in-list sorted-posts)])
       (match-define (list slug (and (document metas body footnotes) doc) the-date) post)
-      (define url (format "https://defn.io~a" (post-url doc slug)))
+      (define url
+        (post-url doc slug #t))
       `(item
         (title ,(hash-ref metas 'title))
         (link ,url)
-        (guid ,(format "~a/index.html" url))
+        (guid ,url)
         (pubDate ,(~datetime the-date))
         (description
          ,(xexpr->string
