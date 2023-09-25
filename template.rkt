@@ -32,13 +32,20 @@
   (define the-date
     (and~> (hash-ref metas 'date #f)
            (parse-date)))
-  (fprintf out "<!doctype html>")
+  (fprintf out "<!DOCTYPE html>")
   (write-xexpr
    (haml
     (:html
      ([:lang "en-US"])
      (:head
+      (:meta ([:charset "utf-8"]))
+      (:meta ([:name "viewport"]
+              [:content "width=device-width, initial-scale=1.0, viewport-fit=cover"]))
       (:title title " " &mdash " defn.io")
+      (:link
+       ([:href "/index.xml"]
+        [:rel "alternate"]
+        [:type "application/atom+xml"]))
       (:link
        ([:href "/css/valkyrie.css"]
         [:rel "stylesheet"]
@@ -46,8 +53,7 @@
       (:link
        ([:href "/css/screen.css"]
         [:rel "stylesheet"]
-        [:type "text/css"]))
-      (:meta ([:charset "utf-8"])))
+        [:type "text/css"])))
      (:body
       (.header
        (.container
@@ -63,7 +69,7 @@
        (.container
         (haml
          (:h1
-          ([:class (class* "documen-title" (and the-date "document-title-dated"))]
+          ([:class (class* "document-title" (and the-date "document-title-dated"))]
            [:data-date (if the-date (format-date the-date) "")])
           title))
         ,@(->html* body)

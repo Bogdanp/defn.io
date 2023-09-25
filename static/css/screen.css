@@ -175,7 +175,8 @@ nav {
 .post-index__post:hover:before {
   color: var(--primary-text-color);
 }
-.post-index__post::before {
+.post-index__post::before,
+.document-title-dated::before {
   color: var(--secondary-text-color);
   content: attr(data-date);
   float: left;
@@ -197,17 +198,7 @@ nav {
   text-decoration: underline;
 }
 .document-title-dated::before {
-  color: var(--secondary-text-color);
-  content: attr(data-date);
-  float: left;
-  font-size: 1.2rem;
-  font-style: italic;
-  font-variant-numeric: tabular-nums;
   line-height: 3.08rem;
-  margin-left: -10rem;
-  position: relative;
-  text-align: right;
-  width: 9rem;
 }
 
 .header .container {
@@ -234,4 +225,74 @@ nav {
 
 .footer {
   height: 2rem;
+}
+
+@media (max-width: 900px) {
+  p {
+    font-size: 1.2rem;
+  }
+
+  p + p {
+    text-indent: 1.2rem;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.6rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.4rem; }
+  h6 { font-size: 1.3rem; }
+
+  blockquote {
+    margin: 1.2rem;
+  }
+
+  nav {
+    display: block;
+  }
+
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
+
+  .menu {
+    margin-top: 0.6rem;
+  }
+
+  .container {
+    padding: 0;
+    width: 100%;
+  }
+
+  .document .container {
+    padding: 0 1rem;
+  }
+
+  .post-index__post {
+    margin: 1rem 0;
+  }
+  .post-index__post::before,
+  .document-title-dated::before {
+    display: block;
+    float: none;
+    line-height: 1;
+    margin: 0;
+    text-align: left;
+    width: auto;
+  }
+  .post-index__post a {
+    font-size: 1.2rem;
+  }
+
+  .document-title {
+    text-decoration: none;
+  }
+
+  .footnotes {
+    list-style-position: inside;
+  }
+  .footnotes p {
+    display: inline;
+  }
 }
