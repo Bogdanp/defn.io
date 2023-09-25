@@ -8,7 +8,7 @@
          "template.rkt")
 
 (define (main)
-  (delete-directory/files public)
+  (delete-directory/files public #:must-exist? #f)
   (copy-directory/files static public)
   (for-each-document
    (λ (_path slug doc)
