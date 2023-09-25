@@ -13,8 +13,8 @@
  posts
  public
  static
+ get-doc
  in-documents
- for-each-document
  document-title
  post-date
  post-path
@@ -27,10 +27,6 @@
 (define-runtime-path public "public")
 (define-runtime-path static "static")
 
-(define (for-each-document proc root)
-  (for ([(p slug doc) (in-documents root)])
-    (proc p slug doc)))
-
 (define find-documents
   (let ([memo (make-hash)])
     (lambda (root)
@@ -38,7 +34,14 @@
        memo root
        (λ ()
          (list->vector
-          (find-files (λ (p) (path-has-extension? p #".md.rkt")) root)))))))
+          (find-files
+           (λ (p)
+             (and (path-has-extension? p #".md.rkt")
+                  (not (regexp-match? #rx#"\\.#" p))))
+           root)))))))
+
+(define (get-doc path)
+  (dynamic-require path 'doc))
 
 (define (in-documents root)
   (define paths
@@ -51,7 +54,7 @@
         (define-values (_dir filename _must-be-dir?)
           (split-path p))
         (match-define (and (document metas _body _footnotes) doc)
-          (dynamic-require p 'doc))
+          (get-doc p))
         (define slug
           (hash-ref metas 'slug (λ () (string-replace (path->string filename) ".md.rkt" ""))))
         (values p slug doc))

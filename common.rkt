@@ -7,14 +7,28 @@
          "document.rkt")
 
 (provide
- (all-from-out koyo/haml)
- (all-defined-out))
+ (all-from-out koyo/haml))
+
+
+;; links ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide
+ deflink)
 
 (define-syntax (deflink stx)
   (syntax-parse stx
     [(_ id:id url:expr {~optional label:expr})
      #'(define id
          (haml (:a ([:href url]) {~? label (symbol->string 'id)})))]))
+
+
+;; cross references ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide
+ @ xref)
+
+(define (@ title [label title])
+  (haml (:a ([:href (xref title)]) label)))
 
 (define (xref title)
   (or
@@ -23,8 +37,13 @@
      (post-url doc slug))
    (error 'xref "post not found: ~s" title)))
 
-(define (@ title [label title])
-  (haml (:a ([:href (xref title)]) label)))
+
+;; elements ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide
+ img
+ table
+ youtube-embed)
 
 (define (img path [alt ""])
   (unless (file-exists? (build-path static "img" path))

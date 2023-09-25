@@ -1,4 +1,4 @@
-public/index.xml: pages/*.md.rkt pages/*.rkt posts/*.md.rkt posts/*.rkt *.md.rkt *.rkt
+public/index.xml: pages/*.rkt posts/*.rkt *.rkt
 	racket -y main.rkt
 
 .PHONY: clean
