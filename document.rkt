@@ -78,8 +78,9 @@
      slug))
   (apply build-path (if full? (cons public args) args)))
 
-(define (post-url doc slug)
-  (string-append "/" (path->string (post-path doc slug #f))))
+(define (post-url doc slug [full? #f])
+  (define path (path->string (post-path doc slug #f)))
+  (string-append (if full? "https://defn.io/" "/") path))
 
 (define (parse-date s)
   (match-define (list year month day hour minute second offset-hours offset-minutes)
