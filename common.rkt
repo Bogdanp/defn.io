@@ -43,6 +43,7 @@
 (provide
  img
  table
+ video
  youtube-embed)
 
 (define (img path [alt ""])
@@ -64,6 +65,13 @@
      ,@(for/list ([row (in-list rows)])
          (haml (:tr ,@(for/list ([col (in-list row)])
                         (haml (:td col))))))))))
+
+(define (video src)
+  (haml
+   (:video
+    ([:src src]
+     [:controls ""]
+     [:width "100%"]))))
 
 (define (youtube-embed id)
   (haml

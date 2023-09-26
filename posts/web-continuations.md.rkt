@@ -53,13 +53,7 @@ able to reference bindings in the scope of its parent.
 
 Here's what that short piece of code gets you:
 
-•(haml
-  (:video
-   ([:src "https://media.defn.io/continuations-demo.mp4"]
-    [:controls ""]
-    [:width "100%"])))
-
-•(haml (:br))
+•(video "https://media.defn.io/continuations-demo.mp4")
 
 I think this is cool as hell.  In essence, continuations let you write
 code that manipulates objects (a counter, a shopping a cart, [a form],

@@ -350,12 +350,7 @@ Pretty cool, eh?
 
 Here's a video of me stepping through the `fib` example with a debugger:
 
-•(haml
-  (:center
-   (:video
-    ([:src "https://media.defn.io/generators-screencast.mp4"]
-     [:controls ""]
-     [:width "720px"]))))
+•(video "https://media.defn.io/generators-screencast.mp4")
 
 P.S. This is actually pretty close to how the generator implementation
 in Racket itself works.  Feel free to [check that out][racket-core-impl],
