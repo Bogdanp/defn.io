@@ -48,7 +48,7 @@
         [:rel "stylesheet"]
         [:type "text/css"]))
       (:link
-       ([:href "/css/screen.css"]
+       ([:href (format "/css/screen.css?~a" (current-seconds))]
         [:rel "stylesheet"]
         [:type "text/css"])))
      (:body
