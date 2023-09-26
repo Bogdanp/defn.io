@@ -2,7 +2,7 @@
 
 ---
 title: Powered by •
-date: 2023-09-25T21:00:00+03:00
+date: 2023-09-25T20:30:00+03:00
 ---
 
 Following in the long tradition of programmers writing blog engines
