@@ -1,11 +1,11 @@
 #lang racket/base
 
 (require punct/doc
+         punct/render/html
          racket/date
          racket/match
          (only-in xml write-xml/content xexpr->string xexpr->xml)
-         (only-in "document.rkt" in-documents posts post-date post-url)
-         (only-in "template.rkt" ->html*))
+         (only-in "document.rkt" in-documents posts post-date post-url))
 
 (provide
  render-feed*
@@ -37,14 +37,7 @@
         (link ,url)
         (guid ,url)
         (pubDate ,(~datetime the-date))
-        (description
-         ,(xexpr->string
-           `(div
-             ,@(->html* body)
-             ,@(if (null? footnotes)
-                   '()
-                   `((hr)
-                     (ol ,@(->html* footnotes))))))))))
+        (description ,(doc->html doc)))))
   (define feed
     `(rss
       ([xmlns:atom "http://www.w3.org/2005/Atom"]
