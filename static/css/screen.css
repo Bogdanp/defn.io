@@ -50,7 +50,6 @@ h5 { font-size: 1.7rem }
 h6 { font-size: 1.6rem }
 
 ul, ol {
-  list-style-position: inside;
   padding-left: 1.4rem;
   font-size: 1.4rem;
 }
@@ -213,7 +212,6 @@ nav {
 
 .footnotes {
   border-top: 1px solid var(--secondary-accent-color);
-  list-style-position: outside;
   padding: 0;
   margin-top: 1rem;
 }
@@ -290,7 +288,7 @@ nav {
   }
 
   .footnotes {
-    list-style-position: inside;
+    padding-left: 1.4rem;
   }
   .footnotes p {
     display: inline;

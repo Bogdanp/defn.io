@@ -33,7 +33,7 @@ my thoughts.  Let's dive right in.
   (render-counter 0))
 ```
 
-*Note: I'm using "#lang web-server/insta" here, which I realize may be
+*Note: I'm using `#lang web-server/insta` here, which I realize may be
 off-putting to some readers (I know it rubbed me the wrong way when I
 was first reading about web development in Racket).  There are more
 familiar (less magical) ways to implement web servers in Racket than
