@@ -1,9 +1,7 @@
 #lang racket/base
 
-(require punct/doc
-         punct/render/html
+(require punct/render/html
          racket/file
-         racket/match
          racket/string
          threading
          (only-in xml write-xexpr)
@@ -24,10 +22,10 @@
          (keyword-apply render kws kw-args doc out null))))))
 
 (define (render doc [out (current-output-port)])
-  (match-define (document metas _body _footnotes) doc)
-  (define title (hash-ref metas 'title))
+  (define title
+    (get-meta doc 'title))
   (define the-date
-    (and~> (hash-ref metas 'date #f)
+    (and~> (get-meta doc 'date #f)
            (parse-date)))
   (fprintf out "<!DOCTYPE html>")
   (write-xexpr
@@ -66,14 +64,14 @@
        (.container
         (haml
          (:h1
-          ([:class (class* "document-title" (and the-date "document-title-dated"))]
+          ([:class (classnames "document-title" (and the-date "document-title-dated"))]
            [:data-date (if the-date (format-date the-date) "")])
           title))
         (doc->html-xexpr doc)))
       (.footer))))
    out))
 
-(define (class* . names)
+(define (classnames . names)
   (string-join (filter values names) " "))
 
 (define (menu-item target label)

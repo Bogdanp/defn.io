@@ -14,6 +14,7 @@
  public
  static
  get-doc
+ get-meta
  in-documents
  document-title
  post-date
@@ -43,6 +44,11 @@
 (define (get-doc path)
   (dynamic-require path 'doc))
 
+(define (get-meta doc k [default (λ ()
+                                   (define path (hash-ref (document-metas doc) 'here-path))
+                                   (error 'get-meta "key ~s not found\n  document: ~a" k path))])
+  (hash-ref (document-metas doc) k default))
+
 (define (in-documents root)
   (define paths
     (find-documents root))
@@ -56,7 +62,7 @@
         (match-define (and (document metas _body _footnotes) doc)
           (get-doc p))
         (define slug
-          (hash-ref metas 'slug (λ () (string-replace (path->string filename) ".md.rkt" ""))))
+          (get-meta doc 'slug (λ () (string-replace (path->string filename) ".md.rkt" ""))))
         (values p slug doc))
       (λ (idx) (add1 idx)) ;pos->element
       0 ;next-pos
@@ -66,10 +72,10 @@
       ))))
 
 (define (document-title doc)
-  (hash-ref (document-metas doc) 'title))
+  (get-meta doc 'title))
 
 (define (post-date doc)
-  (parse-date (hash-ref (document-metas doc) 'date)))
+  (parse-date (get-meta doc 'date)))
 
 (define (post-path doc slug [full? #t])
   (define d (post-date doc))

@@ -3,7 +3,6 @@
 (require (for-syntax racket/base
                      syntax/parse)
          koyo/haml
-         punct/doc
          "document.rkt")
 
 (provide
@@ -33,7 +32,7 @@
 (define (xref title)
   (or
    (for/first ([(_p slug doc) (in-documents posts)]
-               #:when (equal? (hash-ref (document-metas doc) 'title) title))
+               #:when (equal? (get-meta doc 'title) title))
      (post-url doc slug))
    (error 'xref "post not found: ~s" title)))
 

@@ -1,7 +1,6 @@
 #lang racket/base
 
 (require koyo/haml
-         punct/doc
          racket/date
          "document.rkt")
 
@@ -18,7 +17,7 @@
           ([:data-date (format-date the-date)])
           (:a
            ([:href (post-url doc slug)])
-           (hash-ref (document-metas doc) 'title)))))
+           (get-meta doc 'title)))))
       (cons item (date->seconds the-date #f))))
   (haml
    (:ul.post-index

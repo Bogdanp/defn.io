@@ -5,7 +5,7 @@
          racket/date
          racket/match
          (only-in xml write-xml/content xexpr->string xexpr->xml)
-         (only-in "document.rkt" in-documents posts post-date post-url))
+         (only-in "document.rkt" in-documents get-meta posts post-date post-url))
 
 (provide
  render-feed*
@@ -29,11 +29,11 @@
      #:key (compose1 date->seconds caddr) >))
   (define items
     (for/list ([post (in-list sorted-posts)])
-      (match-define (list slug (and (document metas body footnotes) doc) the-date) post)
+      (match-define (list slug doc the-date) post)
       (define url
         (post-url doc slug #t))
       `(item
-        (title ,(hash-ref metas 'title))
+        (title ,(get-meta doc 'title))
         (link ,url)
         (guid ,url)
         (pubDate ,(~datetime the-date))
