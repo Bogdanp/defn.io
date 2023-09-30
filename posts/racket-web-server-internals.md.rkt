@@ -39,23 +39,21 @@ actually the following:
 ```
 
 First, it creates a `servlet` value that wraps the request-handling
-function that it is given.  The servlet contains some internal state
-that maps request URIs to captured continuations.  The servlet's
-`handler` field is what decides which code to run when a request comes
-in: if the request URI matches a known continuation, then that
-continuation is resumed, otherwise the `start` function is applied to
-the request.
+function that it is given. The servlet contains some internal state that
+maps request URIs to captured continuations. The servlet's `handler`
+field is what decides which code to run when a request comes in: if the
+request URI matches a known continuation, then that continuation is
+resumed, otherwise the `start` function is applied to the request.
 
 After creating the servlet, it returns a dispatcher that applies the
-servlet's handler to the request and writes the resulting response to
-the connection.  Before it applies the servlet handler, however, it
-sets up a continuation barrier so that continuations captured within
-the servlet cannot be resumed from outside of the request-response
-cycle.  This ensures that you can't resume such a continuation outside
-of the request-response cycle, when the client isn't prepared to
-receive a response.  After installing the continuation barrier, it
-installs a continuation prompt so that the various "web interaction"
-functions can abort to it.
+servlet's handler to the request and writes the resulting response
+to the connection. Before it applies the servlet handler, it sets
+up a continuation barrier so that continuations captured within the
+servlet cannot be resumed from outside of the request-response cycle,
+guaranteeing that you can't resume such a continuation when the client
+isn't prepared to receive a response. After installing the continuation
+barrier, it installs a continuation prompt so that the various "web
+interaction" functions can abort to it.
 
 The simplest of the web interaction functions, `send/back`, looks like
 this:
@@ -65,7 +63,7 @@ this:
   (abort-current-continuation servlet-prompt (lambda () resp)))
 ```
 
-Knowing that, consider the following request handler:
+With that in mind, consider the following request handler:
 
 ```racket
 (define (hello req)
@@ -75,9 +73,9 @@ Knowing that, consider the following request handler:
 
 When execution reaches the `send/back` function call, it aborts to the
 nearest[^1] `servlet-prompt` handler, which happens to be the one that
-`dispatch/servlet` installs with `call-with-continuation-prompt`, so
-the execution of the request handler short circuits and the response
-passed to `send/back` is immediately sent to the client.
+`dispatch/servlet` installs with `call-with-continuation-prompt`, so the
+execution of the request handler short circuits and the response passed
+to `send/back` is immediately sent to the client.
 
 The `send/suspend` function, on the other hand, looks roughly[^2] like
 this:
@@ -93,7 +91,7 @@ this:
 
 Rather than immediately sending a response back to the client, it
 captures the current continuation, associates it with a URL and then
-passes that URL to a function, `f`, that generates a response.  The
+passes that URL to a function, `f`, that generates a response. The
 resulting response is then sent back to the client.
 
 Using `send/suspend`, you can write request handlers that can be
