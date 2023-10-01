@@ -26,15 +26,16 @@
 (provide
  @ xref)
 
-(define (@ title [label title])
-  (haml (:a ([:href (xref title)]) label)))
+(define (@ title-or-slug [label title-or-slug])
+  (haml (:a ([:href (xref title-or-slug)]) label)))
 
-(define (xref title)
+(define (xref title-or-slug)
   (or
    (for/first ([(_p slug doc) (in-documents posts)]
-               #:when (equal? (get-meta doc 'title) title))
+               #:when (or (string-ci=? slug title-or-slug)
+                          (string-ci=? (get-meta doc 'title) title-or-slug)))
      (post-url doc slug))
-   (error 'xref "post not found: ~s" title)))
+   (error 'xref "post not found: ~s" title-or-slug)))
 
 
 ;; elements ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
