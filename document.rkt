@@ -59,8 +59,13 @@
         (define p (vector-ref paths idx))
         (define-values (_dir filename _must-be-dir?)
           (split-path p))
-        (match-define (and (document metas _body _footnotes) doc)
-          (get-doc p))
+        (match-define (and (document _metas _body _footnotes) doc)
+          (with-handlers ([exn:fail? (λ (e)
+                                       (define metas
+                                         (hash 'here-path p 'title "Missing"))
+                                       (begin0 (document metas null null)
+                                         (log-warning "failed to get doc ~a: ~a" p (exn-message e))))])
+            (get-doc p)))
         (define slug
           (get-meta doc 'slug (λ () (string-replace (path->string filename) ".md.rkt" ""))))
         (values p slug doc))
