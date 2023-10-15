@@ -120,6 +120,14 @@ img {
   display: block;
   max-width: 100%;
 }
+figure {
+}
+figcaption {
+  padding: 1rem 0 0 0;
+  font-size: 1rem;
+  font-style: italic;
+  text-align: center;
+}
 
 nav {
   border-top: 5px solid var(--primary-text-color);

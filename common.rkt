@@ -41,10 +41,17 @@
 ;; elements ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide
+ fig
  img
  table
  video
  youtube-embed)
+
+(define (fig path caption #:alt [alt ""])
+  (haml
+   (:figure
+    (img path alt)
+    (:figcaption caption))))
 
 (define (img path [alt ""])
   (unless (file-exists? (build-path static "img" path))
