@@ -41,11 +41,21 @@
 ;; elements ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide
+ rkt
  fig
  img
  table
  video
  youtube-embed)
+
+(define-syntax (rkt stx)
+  (syntax-parse stx
+    [(_ id:id)
+     #:with id-str (datum->syntax #'id (symbol->string (syntax->datum #'id)))
+     #'(haml
+        (:a
+         ([:href (format "https://docs.racket-lang.org/search/index.html?q=~a" id-str)])
+         (:code id-str)))]))
 
 (define (fig path caption #:alt [alt ""])
   (haml
