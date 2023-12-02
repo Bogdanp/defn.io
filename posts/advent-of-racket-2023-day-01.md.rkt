@@ -1,7 +1,7 @@
 #lang punct "../common.rkt"
 
 ---
-title: Advent of Racket 2023 - Day 01 - Trebuchet?!
+title: Advent of Racket 2023/01 - Trebuchet?!
 date: 2023-12-01T10:00:00+02:00
 ---
 
