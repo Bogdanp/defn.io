@@ -5,7 +5,7 @@ title: Advent of Racket 2023/02 - Cube Conondrum
 date: 2023-12-02T10:00:00+02:00
 ---
 
-Today's puzzle was quick and easy. For the first part, we're to take
+[Today's puzzle] was quick and easy. For the first part, we're to take
 a list of "games" as input where each game has an id and a set of
 semicolon-separated sets of plays and report the sum of the game ids
 where the sets match a certain condition. The example input looks like:
@@ -25,21 +25,21 @@ I decided to make a struct to represent each game:
   #:transparent)
 ```
 
-And to parse each set into a hash from colors to counts:
+And to parse each set into a hash from colors to the number of blocks:
 
 ```racket
 (define (parse-set set-str)
   (for/hasheq ([reveal-str (in-list (string-split set-str ","))])
     (match-define (regexp #rx"([0-9]+) ([a-z]+)"
                           (list _
-                                (app string->number n)
+                                (app string->number blocks)
                                 (app string->symbol color)))
       reveal-str)
-    (values color n)))
+    (values color blocks)))
 ```
 
-The `parse-set` procedure splits the input on commas and extracts
-the count and color of each reveal using a regular expression. The
+The `parse-set` procedure splits the input on commas and extracts the
+block count and color of each reveal using a regular expression. The
 •rkt[for/hasheq] form then collects the results of each iteration into a
 hash. The •rkt[match] form's `app` syntax comes in handy when you want
 to transform a matched value before binding it.
@@ -121,11 +121,10 @@ track of the _maximum_ number of blocks of each color:
 
 ```racket
 (define (game-minimums g)
-  (for/fold ([minimums (hasheq 'red 0 'green 0 'blue 0)])
-            ([s (in-list (game-sets g))])
-    (for/fold ([minimums minimums])
-              ([color (in-list '(red green blue))])
-      (hash-update minimums color (λ (n) (max n (hash-ref s color 0)))))))
+  (for*/fold ([minimums (hasheq 'red 0 'green 0 'blue 0)])
+             ([s (in-list (game-sets g))]
+              [c (in-list '(red green blue))])
+    (hash-update minimums c (λ (blocks) (max blocks (hash-ref s c 0))))))
 ```
 
 For example:
@@ -155,3 +154,5 @@ Put it all together:
 ```
 
 And that's it for day two!
+
+[Today's puzzle]: https://adventofcode.com/2023/day/2
