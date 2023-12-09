@@ -219,4 +219,9 @@ part two by passing in a custom sort procedure to `compute-winnings`:
     a b)))
 ```
 
+This will be my last post in this series, but I'll probably keep solving
+puzzles for another week or so. Check out [my solutions repo] if you
+want to follow along!
+
 [today]: https://adventofcode.com/2023/day/7
+[my solutions repo]: https://github.com/bogdanp/aoc2023
