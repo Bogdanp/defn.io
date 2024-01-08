@@ -25,6 +25,8 @@ I had had it in the back of my mind to make review user-extensible for
 a while but never got around to it until this winter break. It turned
 out to be much easier than I expected!
 
+## How it Works
+
 When review is run, it looks for installed Racket [packages] that have a
 `review-exts` entry in any of their `info.rkt` files. Every entry must
 be a list of 3-element lists of this form:
@@ -53,15 +55,17 @@ custom form for defining records:
 ```racket
 (define-record RECORD-ID
   (FIELD ...))
+```
 
 Where:
 
-  FIELD
-    = [FIELD-ID : TYPE-ID]
+```
+FIELD
+  = [FIELD-ID : TYPE-ID]
 
-  TYPE-ID
-    = Int
-    | Str
+TYPE-ID
+  = Int
+  | Str
 ```
 
 The form can be used as follows:
@@ -196,7 +200,8 @@ cases where it does work well, and I expect to get more out of it as I
 wrote more extensions for bits of custom syntax that I have here and
 there. Maybe you will too!
 
-[^1]: A made-up number.
+[^1]: A made-up number. Probably, it fails less than 20% of the time,
+    but I haven't actually kept track.
 
 [review]: https://github.com/Bogdanp/racket-review
 [packages]: https://docs.racket-lang.org/guide/module-basics.html#%28tech._package%29
