@@ -91,4 +91,5 @@
     ([:as "font"]
      [:rel "preload"]
      [:href uri]
-     [:type "font/woff2"]))))
+     [:type "font/woff2"]
+     [:crossorigin ""]))))
