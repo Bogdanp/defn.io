@@ -12,6 +12,11 @@
  render*
  render)
 
+(define fonts
+  '("/fonts/valkyrie_a_regular.woff2"
+    "/fonts/valkyrie_a_italic.woff2"
+    "/fonts/valkyrie_a_caps_regular.woff2"))
+
 (define render*
   (make-keyword-procedure
    (lambda (kws kw-args dir doc)
@@ -37,6 +42,7 @@
       (:meta ([:name "viewport"]
               [:content "width=device-width, initial-scale=1.0, viewport-fit=cover"]))
       (:title title " " &mdash " defn.io")
+      ,@(map font-preload fonts)
       (:link
        ([:href "/index.xml"]
         [:rel "alternate"]
@@ -78,3 +84,11 @@
   (haml
    (:li.menu__item
     (:a ([:href target]) label))))
+
+(define (font-preload uri)
+  (haml
+   (:link
+    ([:as "font"]
+     [:rel "preload"]
+     [:href uri]
+     [:type "font/woff2"]))))
