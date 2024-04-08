@@ -599,6 +599,14 @@ the full source code and follow along, you can find it [here][source].
 
 See ya next time!
 
+P.S.: CodeCrafters have an interactive course where you can put what
+you learned in this article into practice. Use my [referral link] to
+try their service for free and get a 40% discount if you ever decide
+to upgrade.
+
+[referral link]: https://app.codecrafters.io/join?via=Bogdanp
+
+
 
 [RFC2616]: https://tools.ietf.org/html/rfc2616
 [source]: https://github.com/Bogdanp/web-app-from-scratch/tree/part-01
