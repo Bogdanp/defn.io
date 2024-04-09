@@ -69,12 +69,11 @@
         (define slug
           (get-meta doc 'slug (λ () (string-replace (path->string filename) ".md.rkt" ""))))
         (values p slug doc))
-      (λ (idx) (add1 idx)) ;pos->element
-      0 ;next-pos
-      (λ (idx) (< idx (vector-length paths))) ;continue-with-pos?
-      #f ;continue-with-val?
-      #f ;continue-after-pos+val?
-      ))))
+      #;pos->element (λ (idx) (add1 idx))
+      #;next-pos 0
+      #;continue-with-pos? (λ (idx) (< idx (vector-length paths)))
+      #;continue-with-val? #f
+      #;continue-after-pos+val? #f))))
 
 (define (document-title doc)
   (get-meta doc 'title))

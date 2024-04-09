@@ -1,8 +1,9 @@
 #lang racket/base
 
 (require (for-syntax racket/base
-                     syntax/parse)
+                     syntax/parse/pre)
          koyo/haml
+         racket/string
          "document.rkt")
 
 (provide
@@ -26,16 +27,21 @@
 (provide
  @ xref)
 
-(define (@ title-or-slug [label title-or-slug])
-  (haml (:a ([:href (xref title-or-slug)]) label)))
+(define (@ title-or-slug . label)
+  (haml (:a ([:href (xref title-or-slug)])
+            (if (null? label)
+                title-or-slug
+                (string-join label " ")))))
+
 
 (define (xref title-or-slug)
-  (or
-   (for/first ([(_p slug doc) (in-documents posts)]
-               #:when (or (string-ci=? slug title-or-slug)
-                          (string-ci=? (get-meta doc 'title) title-or-slug)))
-     (post-url doc slug))
-   (error 'xref "post not found: ~s" title-or-slug)))
+  (let ([title-or-slug (regexp-replace* #rx"[\n\r\t]" title-or-slug " ")])
+    (or
+     (for/first ([(_p slug doc) (in-documents posts)]
+                 #:when (or (string-ci=? slug title-or-slug)
+                            (string-ci=? (get-meta doc 'title) title-or-slug)))
+       (post-url doc slug))
+     (error 'xref "post not found: ~s" title-or-slug))))
 
 
 ;; elements ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
