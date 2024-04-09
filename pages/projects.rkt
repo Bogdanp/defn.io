@@ -1,7 +1,6 @@
 #lang racket/base
 
-(require koyo/haml
-         racket/match
+(require racket/match
          "../common.rkt")
 
 (provide
@@ -35,7 +34,7 @@
   (list
    (project
     "Franz" "https://franz.defn.io"
-    "A macOS client for Apache Kafka.")
+    "A desktop client for Apache Kafka.")
    (project
     "neko.app" "https://github.com/Bogdanp/neko"
     "A tiny kitten follows your mouse cursor on macOS.")
