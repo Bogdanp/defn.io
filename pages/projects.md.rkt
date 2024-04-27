@@ -1,4 +1,4 @@
-#lang punct "../common.rkt" "projects.rkt"
+#lang punct "projects.rkt"
 
 ---
 title: Projects
@@ -18,8 +18,7 @@ These are some of the web applications I've built in my spare time.
 
 ## Libraries and Tools
 
-This is the stuff I'm currently working on and actively maintaining in
-the open.
+This is the stuff I'm actively maintaining.
 
 •(projects-table lib-projects)
 

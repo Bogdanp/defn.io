@@ -132,6 +132,9 @@
     "heater" "https://github.com/Bogdanp/heater"
     "A Python heatmapping library.")
    (project
+    "hugs" "https://github.com/Bogdanp/hugs"
+    "A library that maps SQL expressions to Python fuctions.")
+   (project
     "ido-clever-match" "https://github.com/Bogdanp/ido-clever-match"
     "An alternative matcher for Emacs ido-mode.")
    (project
@@ -215,9 +218,6 @@
    (project
     "http-easy" "https://github.com/Bogdanp/racket-http-easy"
     "A high-level HTTP client for Racket.")
-   (project
-    "hugs" "https://github.com/Bogdanp/hugs"
-    "A library that maps SQL expressions to Python fuctions.")
    (project
     "koyo" "https://github.com/Bogdanp/koyo"
     "A web development toolkit for Racket.")
