@@ -1,4 +1,4 @@
-#lang punct "../common.rkt"
+#lang punct
 
 ---
 title: Hi!
@@ -14,12 +14,12 @@ detection and scaling databases and systems containing hundreds of
 terabytes of financial data.
 
 For a while, I ran [Matchacha], a Romanian e-commerce business that
-imported and sold Japanese green tea. I'm currently working as a
-Principal Engineer at [ServiceBell] and developing [Franz], a native
-desktop client for Apache Kafka, in my spare time. I'm also working
-with [Marc Kaufmann] on [congame], a platform for building & running
-economics studies. Previously, I worked on _redacted_ at [Intuit], I
-ran the API and data ingestion platform for [Nomics], I was the CTO of
+imported and sold Japanese green tea. I'm currently taking a break
+from full time work and developing [Franz], a native desktop client
+for Apache Kafka. I'm also working with [Marc Kaufmann] on [congame],
+a platform for building & running economics studies. Previously, I was
+Principal Engineer at [ServiceBell], I worked on _redacted_ at [Intuit],
+I ran the API and data ingestion platform for [Nomics], I was the CTO of
 [BlockFraud], and I was a Principal Engineer at [Leadpages].
 
 In my free time, I like to contribute to the [Racket] programming
