@@ -1,4 +1,4 @@
-#lang punct "../common.rkt"
+#lang punct
 
 ---
 title: Extensible Linting for Racket
