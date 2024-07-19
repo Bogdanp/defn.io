@@ -19,6 +19,13 @@ title: Talks
 •(table
   '("Title" "Venue")
   `(,(paper-anchor
+      "/papers/cont-funarch24.pdf"
+      "Continuations: What Have They Ever Done for Us?"
+      "Kaufmann and Popa")
+    ,(paper-venue
+      "https://www.functional-architecture.org/events/funarch-2024/"
+      "FUNARCH 24"))
+  `(,(paper-anchor
       "/papers/fungui-funarch23.pdf"
       "Functional Shell and Reusable Components for Easy GUIs"
       "Knoble and Popa")
