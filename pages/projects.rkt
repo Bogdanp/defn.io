@@ -195,6 +195,9 @@
     "dbg" "https://github.com/Bogdanp/racket-dbg"
     "A remote debugging/monitoring tool for Racket programs.")
    (project
+    "define-query" "https://github.com/Bogdanp/racket-define-query"
+    "Turn .sql files into virtual-statements in Racket.")
+   (project
     "deta" "https://github.com/Bogdanp/deta"
     "A functional database mapper for Racket.")
    (project
@@ -233,6 +236,9 @@
    (project
     "molten" "https://moltenframework.com"
     "A modern API framework for Python 3.")
+   (project
+    "monocle" "https://github.com/Bogdanp/racket-monocle"
+    "Lenses for Racket.")
    (project
     "monotonic" "https://github.com/Bogdanp/racket-monotonic"
     "Monotonic time for Racket.")
