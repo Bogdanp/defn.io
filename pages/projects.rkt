@@ -174,6 +174,9 @@
 (define lib-projects
   (list
    (project
+    "actor" "https://github.com/Bogdanp/racket-actor"
+    "Kill-Safe actors for Racket.")
+   (project
     "avro" "https://github.com/Bogdanp/racket-avro"
     "A Racket implementation of the Apache Avro serialization format.")
    (project
