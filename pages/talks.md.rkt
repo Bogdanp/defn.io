@@ -16,14 +16,20 @@ title: Talks
 •(define (paper-venue url label)
    (haml (:span (:a ([:href url]) label))))
 
+•(define (paper-talk url label)
+   (haml (:span (:a ([:href url]) label))))
+
 •(table
-  '("Title" "Venue")
+  '("Title" "Venue" "Talks")
   `(,(paper-anchor
       "/papers/cont-funarch24.pdf"
       "Continuations: What Have They Ever Done for Us?"
       "Kaufmann and Popa")
     ,(paper-venue
       "https://www.functional-architecture.org/events/funarch-2024/"
+      "FUNARCH 24")
+    ,(paper-talk
+      "https://www.youtube.com/live/cX8yWBMKCO4?t=21406s"
       "FUNARCH 24"))
   `(,(paper-anchor
       "/papers/fungui-funarch23.pdf"
