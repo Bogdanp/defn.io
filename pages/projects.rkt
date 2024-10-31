@@ -258,6 +258,9 @@
     "north" "https://github.com/Bogdanp/racket-north"
     "A database schema migration tool written in Racket.")
    (project
+    "place-tcp-listener" "https://github.com/Bogdanp/racket-place-tcp-listener"
+    "A TCP listener that dispatches new connections to places.")
+   (project
     "postmark" "https://github.com/Bogdanp/racket-postmark"
     (haml (:span "A " Postmark " client written in Racket.")))
    (project
