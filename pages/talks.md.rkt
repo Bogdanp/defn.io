@@ -13,7 +13,7 @@ title: Talks
      (:br)
      authors)))
 
-•(define (paper-venue url label)
+•(define (paper-venue url label [talk-url #f])
    (haml (:span (:a ([:href url]) label))))
 
 •(define (paper-talk url label)
@@ -37,7 +37,8 @@ title: Talks
       "Knoble and Popa")
     ,(paper-venue
       "https://www.functional-architecture.org/events/funarch-2023/"
-      "FUNARCH 23")))
+      "FUNARCH 23")
+    ""))
 
 ## Talks
 
