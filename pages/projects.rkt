@@ -39,6 +39,9 @@
     "neko.app" "https://github.com/Bogdanp/neko"
     "A tiny kitten follows your mouse cursor on macOS.")
    (project
+    "Podcatcher" "https://apps.apple.com/us/app/podcatcher-podcast-player/id6736467324"
+    "A podcast player for iOS.")
+   (project
     "Remember" "https://remember.defn.io"
     "A keyboard-driven application for stashing away distractions for later.")))
 
