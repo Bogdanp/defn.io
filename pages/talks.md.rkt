@@ -16,65 +16,73 @@ title: Talks
 •(define (paper-venue url label [talk-url #f])
    (haml (:span (:a ([:href url]) label))))
 
-•(define (paper-talk url label)
-   (haml (:span (:a ([:href url]) label))))
+•(define FUNARCH23 (paper-venue "https://www.functional-architecture.org/events/funarch-2023/" "FUNARCH 23"))
+•(define FUNARCH24 (paper-venue "https://www.functional-architecture.org/events/funarch-2024/" "FUNARCH 24"))
 
 •(table
-  '("Title" "Venue" "Talks")
+  '("Title" "Venue")
   `(,(paper-anchor
       "/papers/cont-funarch24.pdf"
       "Continuations: What Have They Ever Done for Us?"
       "Kaufmann and Popa")
-    ,(paper-venue
-      "https://www.functional-architecture.org/events/funarch-2024/"
-      "FUNARCH 24")
-    ,(paper-talk
-      "https://www.youtube.com/live/cX8yWBMKCO4?t=21406s"
-      "FUNARCH 24"))
+    ,FUNARCH24)
   `(,(paper-anchor
       "/papers/fungui-funarch23.pdf"
       "Functional Shell and Reusable Components for Easy GUIs"
       "Knoble and Popa")
-    ,(paper-venue
-      "https://www.functional-architecture.org/events/funarch-2023/"
-      "FUNARCH 23")
-    ""))
+    ,FUNARCH23))
 
 ## Talks
 
 •(deflink RacketCon "https://con.racket-lang.org")
 •(deflink Racketfest "https://racketfest.com")
+•(deflink RoPython "https://ropython.ro/")
 •(deflink Dramatiq "https://dramatiq.io")
 
-•(struct talk (label year url description))
+•(struct talk (label year url venue description))
 
 •(define (talk-row t)
-   (match-define (talk label year url description) t)
+   (match-define (talk label year url venue description) t)
    (list
     (haml (:a ([:href url]) label))
     (number->string year)
+    venue
     description))
 
 •(define talks
    (list
     (talk
-     "Native Apps with Racket" 2023
-     (xref "Racketfest 2023 Talk: Native Apps with Racket")
-     (haml (:span "A talk I gave at " Racketfest " 2023 about building native desktop applications with Racket.")))
+     #;label "Continuations: What Have They Ever Done for Us"
+     #;year 2024
+     #;url "https://www.youtube.com/live/cX8yWBMKCO4?t=21406s"
+     #;venue FUNARCH24
+     #;description "Marc and I presented our paper with the same title.")
     (talk
-     "Declarative GUIs in Racket" 2021
-     (xref "(eleventh RacketCon) talk: Declarative GUIs")
-     (haml (:span "A talk I gave at the eleventh " RacketCon " about a system for building native GUIs in Racket in a declarative way.")))
+     #;label "Native Apps with Racket"
+     #;year 2023
+     #;url (xref "Racketfest 2023 Talk: Native Apps with Racket")
+     #;venue Racketfest
+     #;description "How to build native desktop applications with Racket.")
     (talk
-     "Racket for the Web" 2020
-     "https://github.com/Bogdanp/racketfest2020-talk"
-     (haml (:span "A talk I gave at " Racketfest " 2020 about building an e-commerce business with Racket.")))
+     #;label "Declarative GUIs in Racket"
+     #;year 2021
+     #;url (xref "(eleventh RacketCon) talk: Declarative GUIs")
+     #;venue RacketCon
+     #;description "How to write declarative GUIs in Racket.")
     (talk
-     "Async Tasks with Dramatiq" 2017
-     "https://www.youtube.com/watch?v=mrG9ZwLxb0g"
-     (haml (:span "An intro talk to " Dramatiq ", my task processing library for Python.")))))
+     #;label "Racket for the Web"
+     #;year 2020
+     #;url "https://github.com/Bogdanp/racketfest2020-talk"
+     #;venue Racketfest
+     #;description "How I built an e-commerce business with Racket.")
+    (talk
+     #;label "Async Tasks with Dramatiq"
+     #;year 2017
+     #;url "https://www.youtube.com/watch?v=mrG9ZwLxb0g"
+     #;venue RoPython
+     #;description (haml (:span "An intro to " Dramatiq ".")))))
 
-•(apply table '("Talk" "Year" "Description") (map talk-row talks))
+•(apply table '("Talk" "Year" "Venue" "Description") (map talk-row talks))
 
 ## Screencasts
 
