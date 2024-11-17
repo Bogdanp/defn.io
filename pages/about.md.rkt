@@ -28,10 +28,11 @@ bunch of other OSS which you can find on my [projects] page and on [my
 GitHub profile][gh].
 
 If you want to get in touch, [email] me. Find out about new posts by
-subscribing to the [Atom] feed or follow me on [Mastodon].
+subscribing to the [Atom] feed or follow me on [Mastodon] and [Bluesky].
 
 [Atom]: http://defn.io/index.xml
 [BlockFraud]: http://blockfraud.com
+[Bluesky]: https://popabogdanp.bsky.social
 [Dramatiq]: https://dramatiq.io
 [Franz]: https://franz.defn.io
 [Intuit]: https://intuit.com
