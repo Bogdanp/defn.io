@@ -32,7 +32,7 @@ subscribing to the [Atom] feed or follow me on [Mastodon] and [Bluesky].
 
 [Atom]: http://defn.io/index.xml
 [BlockFraud]: http://blockfraud.com
-[Bluesky]: https://popabogdanp.bsky.social
+[Bluesky]: https://bsky.app/profile/defn.io
 [Dramatiq]: https://dramatiq.io
 [Franz]: https://franz.defn.io
 [Intuit]: https://intuit.com
