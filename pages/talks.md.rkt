@@ -54,7 +54,7 @@ title: Talks
     (talk
      #;label "Continuations: What Have They Ever Done for Us"
      #;year 2024
-     #;url "https://www.youtube.com/live/cX8yWBMKCO4?t=21406s"
+     #;url "https://www.youtube.com/watch?v=Pzt3WhUF9bE"
      #;venue FUNARCH24
      #;description "Marc and I presented our paper with the same title.")
     (talk
