@@ -16,11 +16,14 @@ terabytes of financial data.
 For a while, I ran [Matchacha], a Romanian e-commerce business that
 imported and sold Japanese green tea. I'm currently taking a break
 from full time work and developing [Franz], a native desktop client
-for Apache Kafka. I'm also working with [Marc Kaufmann] on [congame],
-a platform for building & running economics studies. Previously, I was
-Principal Engineer at [ServiceBell], I worked on _redacted_ at [Intuit],
-I ran the API and data ingestion platform for [Nomics], I was the CTO of
-[BlockFraud], and I was a Principal Engineer at [Leadpages].
+for Apache Kafka, and [Podcatcher], a podcast player for iOS. I'm also
+working with [Marc Kaufmann] on [congame], a platform for building &
+running economics studies.
+
+Previously, I was Principal Engineer at [ServiceBell], I worked on
+_redacted_ at [Intuit], I ran the API and data ingestion platform for
+[Nomics], I was the CTO of [BlockFraud], and I was a Principal Engineer
+at [Leadpages].
 
 In my free time, I like to contribute to the [Racket] programming
 language and ecosystem. I maintain [koyo], [dramatiq], [molten] and a
@@ -41,6 +44,7 @@ subscribing to the [Atom] feed or follow me on [Mastodon] and [Bluesky].
 [Mastodon]: https://mas.to/@bogdanp
 [Matchacha]: /2019/08/20/racket-ecommerce/
 [Nomics]: https://nomics.com
+[Podcatcher]: https://podcatcher.net
 [Racket]: https://racket-lang.org
 [ServiceBell]: https://servicebell.com
 [congame]: https://github.com/MarcKaufmann/congame
