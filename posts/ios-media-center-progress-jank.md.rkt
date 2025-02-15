@@ -16,6 +16,7 @@ resume, before the app finally resets the elapsed time back to 0:38.
    (video
     ([controls ""]
      [height "480px"]
+     [width "221px"]
      [muted ""]
      [src "/img/media-center-demo.mp4"])))
 
