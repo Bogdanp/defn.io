@@ -5,7 +5,7 @@ title: Batch Inserts in PostgreSQL
 date: 2025-02-15T11:40:00+02:00
 ---
 
-I recently added [support for batch inserts] to [koyo] and I thought
+I recently added [support for batch inserts] to [koyo] and thought
 I'd make a quick post about it. Here's what it looks like to use this
 feature:
 
@@ -42,13 +42,14 @@ INSERT INTO tickers(
   ($(n*3+1), $(n*3+2), $(n*3+3))
 ```
 
-This works fine for the most part, but it has a couple problems. First,
-the maximum number of parameters to an insert statement in Postgres is
-65536, so at most `65k/n-columns` rows may be batched in memory before a
-flush is required. Second, this has the obvious problem that every flush
-requires sending a new, long query to the database, so this approach
-can't easily leverage prepared statements. The latter doesn't seem to
-have a huge impact, but it's still some unnecessary inefficiency.
+This works fine for the most part, but it has a couple of problems.
+First, the maximum number of parameters to an insert statement in
+Postgres is 65536, so at most `65k/n-columns` rows may be batched in
+memory before a flush is required. Second, this has the obvious problem
+that every flush requires sending a new, long query to the database,
+so this approach can't easily leverage prepared statements. The latter
+doesn't seem to have a huge impact, but it's still some unnecessary
+inefficiency.
 
 This time around, I decided to buffer the values in column-wise arrays.
 On flush, those arrays are passed to the insert statement directly and
