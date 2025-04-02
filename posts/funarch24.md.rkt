@@ -5,7 +5,7 @@ title: Continuations: What Have They Ever Done for Us?
 date: 2024-09-22T17:10:00+03:00
 ---
 
-A couple weeks ago, [Marc Kafumann][marc] and I presented our paper,
+A couple weeks ago, [Marc Kaufmann][marc] and I presented our paper,
 [Continuations: What Have They Ever Done for Us?][acm], at [FUNARCH
 '24][funarch]. The paper is a short experience report about our use
 of continuations in [Congame] where we talk about the benefits of
