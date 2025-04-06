@@ -7,7 +7,7 @@ title: Hi!
 You've reached Bogdan Popa's personal website. Welcome!
 
 I've been working as a professional software engineer for the past
-15 years. In that time span I have worked on a variety of problems
+16 years. In that time span I have worked on a variety of problems
 ranging from low-level video streaming on mobile devices to real time
 analytics, device fingerprinting, landing page optimization, fraud
 detection and scaling databases and systems containing hundreds of
