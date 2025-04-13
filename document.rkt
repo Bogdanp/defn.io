@@ -79,7 +79,7 @@
   (get-meta doc 'title))
 
 (define (post-date doc)
-  (parse-date (get-meta doc 'date)))
+  (parse-date (get-meta doc 'date "1970-01-01T00:00:00+00:00")))
 
 (define (post-path doc slug [full? #t])
   (define d (post-date doc))
