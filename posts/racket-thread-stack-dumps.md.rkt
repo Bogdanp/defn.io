@@ -8,8 +8,8 @@ date: 2025-05-30T07:35:00+03:00
 A neat feature of the JVM is that, out of the box, you can send
 a running JVM process a `SIGQUIT` signal and it'll dump stack
 traces for all running threads to `stdout`. The output looks like
-[this][threaddump]. It's can be really handy when you're trying to debug
-a live system.
+[this][threaddump]. It can be really handy when you're trying to debug a
+live system.
 
 Racket doesn't have this feature, but you can build something like it
 yourself by combining some of the introspection tools the runtime system
