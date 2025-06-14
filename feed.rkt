@@ -3,6 +3,7 @@
 (require punct/doc
          punct/render/html
          racket/date
+         racket/list
          racket/match
          (only-in xml write-xml/content xexpr->string xexpr->xml)
          (only-in "document.rkt" in-documents get-meta posts post-date post-url))
@@ -28,7 +29,7 @@
        (list slug doc (post-date doc)))
      #:key (compose1 date->seconds caddr) >))
   (define items
-    (for/list ([post (in-list sorted-posts)])
+    (for/list ([post (in-list (take sorted-posts 10))])
       (match-define (list slug doc the-date) post)
       (define url
         (post-url doc slug #t))
