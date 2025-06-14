@@ -64,7 +64,7 @@ querying:
 ```
 
 So, you have to collect the list of threads recursively by dispatching
-on the list types of the values in the list:
+on the types of the values in the list:
 
 ``` racket
 ;; ...continued from above
