@@ -122,7 +122,7 @@ int main(void) {
 }
 ```
 
-Change the `enabled` flag to `1` and then run it again to see the
+Change the `enable` flag to `1` and then run it again to see the
 difference.
 
 For Racket, the fix is going to be to turn off `SO_KEEPALIVE` on macOS.
