@@ -1,9 +1,31 @@
 #lang punct
 
 ---
-title: SO_KEEPALIVE Slow on macOS
+title: SO_KEEPALIVE Slow (?) on macOS
 date: 2025-07-31T08:00:00+03:00
 ---
+
+*Update: Mystery solved!*
+
+[Pete Kazmier] reached out over e-mail asking if I could share some
+packet captures of the problem. I sent them to him, and he figured out
+the issue.
+
+The Racket implementation was passing the wrong `level` to `setsockopt`,
+namely `IPPROTO_TCP` instead of `SOL_SOCKET`. The particular combination
+of the values of `IPPROTO_TCP` and `SO_KEEPALIVE` on macOS happens
+to map to a configuration where the use of TCP options is disabled
+altogether. See [Pete's explanation] on GitHub.
+
+When I made my reproduction I, of course, didn't think to double check
+that the original `setsockopt` call was correct in the first place 🤦🏻‍♂️.
+
+Original post below.
+
+[Pete Kazmier]: https://github.com/pkazmier
+[Pete's explanation]: https://github.com/racket/racket/commit/1c9468f029b37c5bb6ea140f6001a9a4639c216b#commitcomment-163229892
+
+•'(hr)
 
 [Tested on macOS 14, 15 and 26.]
 
