@@ -20,10 +20,15 @@ for Apache Kafka, and [Podcatcher], a podcast player for iOS. I'm also
 working with [Marc Kaufmann] on [congame], a platform for building &
 running economics studies.
 
+•(define (redacted text)
+   `(span
+     ([style "background: black; color: black"])
+     ,text))
+
 Previously, I was Principal Engineer at [ServiceBell], I worked on
-_redacted_ at [Intuit], I ran the API and data ingestion platform for
-[Nomics], I was the CTO of [BlockFraud], and I was a Principal Engineer
-at [Leadpages].
+•(redacted "redacted") at [Intuit], I ran the API and data ingestion
+platform for [Nomics], I was the CTO of [BlockFraud], and I was a
+Principal Engineer at [Leadpages].
 
 In my free time, I like to contribute to the [Racket] programming
 language and ecosystem. I maintain [koyo], [dramatiq], [molten] and a
