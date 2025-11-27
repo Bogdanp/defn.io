@@ -10,7 +10,7 @@ well-documented when it comes to implementing widgets on iOS is how to
 share data between the widget and the main app.
 
 The widget is supposed to be small and efficient so loading all your
-models in there seems wrong (and the extension probably(?) can't event
+models in there seems wrong (and the extension probably(?) can't even
 access the app's sandboxed database).
 
 The documentation mentions using network requests a bunch, presumably
